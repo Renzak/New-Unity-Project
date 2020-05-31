@@ -10,10 +10,10 @@ public class BollMovementInput : MonoBehaviour
     Vector3 VERTICAL_VELOCITY = new Vector3(0, 30, 0);
 
     bool canJump = false;
-    const int speed = 200;
+    const int speed = 50;
     const int cameraDistance = 10;
     const int cameraHight = 7;
-    const int maxVelocity = 50;
+    const int maxVelocity = 20;
 
     void Start()
     {
