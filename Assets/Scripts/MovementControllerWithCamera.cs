@@ -24,6 +24,28 @@ public class MovementControllerWithCamera : MonoBehaviour
         mainCamera = GameObject.Find(CAMERA_NAME);
     }
 
+    void Update()
+    {
+        UpdateCameraPosition();
+        ProccessUserInput();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(JUMPABLE_TAG))
+        {
+            canJump = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(JUMPABLE_TAG))
+        {
+            canJump = false;
+        }
+    }
+
     void ProccessUserInput()
     {
         if (Input.GetKey(KeyCode.Space) && canJump)
@@ -74,24 +96,4 @@ public class MovementControllerWithCamera : MonoBehaviour
         mainCamera.transform.position = gameObject.transform.position + new Vector3(0, CAMERA_HEIGHT, -CAMERA_DISTANCE);
     }
 
-    void Update()
-    {
-        UpdateCameraPosition();
-        ProccessUserInput();
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(JUMPABLE_TAG))
-        {
-            canJump = true;
-        }
-    }
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(JUMPABLE_TAG))
-        {
-            canJump = false;
-        }
-    }
 }
