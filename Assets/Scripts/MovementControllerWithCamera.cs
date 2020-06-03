@@ -6,14 +6,16 @@ public class MovementControllerWithCamera : MonoBehaviour
 {
     Rigidbody rigidBody;
     public GameObject mainCamera;
+    public AudioClip jumpSound;
 
-    readonly Vector3 VERTICAL_VELOCITY = new Vector3(0, 30, 0);
+    public Vector3 VERTICAL_VELOCITY = new Vector3(0, 30, 0);
     readonly string JUMPABLE_TAG = "JumpPlatform";
 
     public int SPEED_FACTOR = 50;
     public int MAX_VELOCITY = 20;
 
     bool canJump = false;
+    int collidingJumpPlatformsCount = 0;
 
     void Start()
     {
@@ -30,6 +32,11 @@ public class MovementControllerWithCamera : MonoBehaviour
         if (collision.gameObject.CompareTag(JUMPABLE_TAG))
         {
             canJump = true;
+            collidingJumpPlatformsCount++;
+
+            var emptyObject = new GameObject();
+            emptyObject.transform.parent = collision.gameObject.transform;
+            gameObject.transform.parent = emptyObject.transform;
         }
     }
 
@@ -37,7 +44,13 @@ public class MovementControllerWithCamera : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(JUMPABLE_TAG))
         {
-            canJump = false;
+            collidingJumpPlatformsCount--;
+            gameObject.transform.parent = null;
+
+            if (collidingJumpPlatformsCount == 0)
+            {
+                canJump = false;
+            }
         }
     }
 
@@ -47,6 +60,7 @@ public class MovementControllerWithCamera : MonoBehaviour
         {
             rigidBody.velocity += VERTICAL_VELOCITY;
             canJump = false;
+            gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
         if (Input.GetKey(KeyCode.A))

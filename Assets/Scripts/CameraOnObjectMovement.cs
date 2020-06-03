@@ -7,12 +7,11 @@ public class CameraOnObjectMovement : MonoBehaviour
     public float MOUSE_SENSITIVITY = 0.1f;
     public float MAX_COS = 0.4f;
     public float MIN_COS = 0.1f;
+    public int CAMERA_RADIUS = 10;
 
     GameObject mainCamera;
     
     readonly string CAMERA_NAME = "MainCamera";
-
-    const int CAMERA_RADIUS = 10;
 
     float oldX;
     float oldY;
@@ -27,7 +26,7 @@ public class CameraOnObjectMovement : MonoBehaviour
     void Update()
     {
         float mouseX = MOUSE_SENSITIVITY * -Input.GetAxis("Mouse X");
-        float mouseY = MOUSE_SENSITIVITY * -Input.GetAxis("Mouse Y");
+        float mouseY = MOUSE_SENSITIVITY * Input.GetAxis("Mouse Y");
         UpdateCameraPosition(mouseX, mouseY);
 
     }
