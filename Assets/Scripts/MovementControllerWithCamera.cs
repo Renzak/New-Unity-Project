@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class MovementControllerWithCamera : MonoBehaviour
 {
-    Rigidbody rigidBody;
     public GameObject mainCamera;
     public AudioClip jumpSound;
 
     public Vector3 VERTICAL_VELOCITY = new Vector3(0, 30, 0);
-    readonly string JUMPABLE_TAG = "JumpPlatform";
 
     public int SPEED_FACTOR = 50;
     public int MAX_VELOCITY = 20;
+    public float DELTA_SINCE_JUMP =  0.5f;
 
-    bool canJump = false;
     int collidingJumpPlatformsCount = 0;
+    Rigidbody rigidBody;
+
+    readonly string JUMPABLE_TAG = "JumpPlatform";
+    float deltaTimeJump = 0;
 
     void Start()
     {
@@ -25,13 +27,13 @@ public class MovementControllerWithCamera : MonoBehaviour
     void Update()
     {
         ProccessUserInput();
+        deltaTimeJump += Time.deltaTime;
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(JUMPABLE_TAG))
         {
-            canJump = true;
             collidingJumpPlatformsCount++;
 
             var emptyObject = new GameObject();
@@ -48,20 +50,15 @@ public class MovementControllerWithCamera : MonoBehaviour
             GameObject temp = gameObject.transform.parent.gameObject;
             gameObject.transform.parent = null;
             Destroy(temp);
-
-            if (collidingJumpPlatformsCount == 0)
-            {
-                canJump = false;
-            }
         }
     }
 
     void ProccessUserInput()
     {
-        if (Input.GetKey(KeyCode.Space) && canJump)
+        if (Input.GetKey(KeyCode.Space) && collidingJumpPlatformsCount > 0 && deltaTimeJump > DELTA_SINCE_JUMP)
         {
+            deltaTimeJump = 0f;
             rigidBody.velocity += VERTICAL_VELOCITY;
-            canJump = false;
             gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
