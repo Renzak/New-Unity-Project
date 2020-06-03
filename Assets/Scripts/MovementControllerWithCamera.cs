@@ -45,7 +45,9 @@ public class MovementControllerWithCamera : MonoBehaviour
         if (collision.gameObject.CompareTag(JUMPABLE_TAG))
         {
             collidingJumpPlatformsCount--;
+            GameObject temp = gameObject.transform.parent.gameObject;
             gameObject.transform.parent = null;
+            Destroy(temp);
 
             if (collidingJumpPlatformsCount == 0)
             {
