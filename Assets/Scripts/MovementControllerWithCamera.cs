@@ -17,6 +17,7 @@ public class MovementControllerWithCamera : MonoBehaviour
     Rigidbody rigidBody;
 
     readonly string JUMPABLE_TAG = "JumpPlatform";
+    readonly string PLAYER_PARENT_OBJECT_NAME = "PlayerParentObject";
     float deltaTimeJump = 0;
 
     void Start()
@@ -36,7 +37,15 @@ public class MovementControllerWithCamera : MonoBehaviour
         {
             collidingJumpPlatformsCount++;
 
+            if(gameObject.transform.parent != null)
+            {
+                GameObject temp = gameObject.transform.parent.gameObject;
+                gameObject.transform.parent = null;
+                Destroy(temp);
+            }
+
             var emptyObject = new GameObject();
+            emptyObject.name = PLAYER_PARENT_OBJECT_NAME;
             emptyObject.transform.parent = collision.gameObject.transform;
             gameObject.transform.parent = emptyObject.transform;
         }
@@ -48,7 +57,7 @@ public class MovementControllerWithCamera : MonoBehaviour
         {
             collidingJumpPlatformsCount--;
 
-            if(gameObject.transform.parent != null)
+            if (gameObject.transform.parent != null)
             {
                 GameObject temp = gameObject.transform.parent.gameObject;
                 gameObject.transform.parent = null;

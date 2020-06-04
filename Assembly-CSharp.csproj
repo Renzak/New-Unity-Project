@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraOnObjectMovement.cs" />
+    <Compile Include="Assets\Scripts\ConstantRespawn.cs" />
     <Compile Include="Assets\Scripts\ConstantRotation.cs" />
     <Compile Include="Assets\Scripts\MovementControllerWithCamera.cs" />
     <Compile Include="Assets\Scripts\RespawnSystem.cs" />
