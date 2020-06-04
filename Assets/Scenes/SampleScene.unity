@@ -3178,6 +3178,7 @@ MonoBehaviour:
   VERTICAL_VELOCITY: {x: 0, y: 30, z: 0}
   SPEED_FACTOR: 50
   MAX_VELOCITY: 20
+  DELTA_SINCE_JUMP: 0.5
 --- !u!114 &2099170537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3203,7 +3204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOUSE_SENSITIVITY: 0.1
-  MAX_COS: 0.6
+  MAX_COS: 0.9
   MIN_COS: 0.1
   CAMERA_RADIUS: 10
 --- !u!82 &2099170539
