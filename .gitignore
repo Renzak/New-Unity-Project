@@ -1,0 +1,12 @@
+/*
+/*/
+
+!.gitignore
+!/Assets/
+!/ProjectSettings/
+*.meta
+/*.meta
+/*/*.meta
+*.log
+/*.log
+/*/*.log
