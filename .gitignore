@@ -4,3 +4,6 @@
 !.gitignore
 !/Assets/
 !/ProjectSettings/
+*.meta
+/*.meta
+/*/*.meta
