@@ -12,7 +12,6 @@ public class RespawnSystem : MonoBehaviour
     readonly string DEAD_TAG = "DeadPit";
     readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
     readonly string CHECKPOINT_TAG = "Checkpoint";
-    readonly string END_TAG = "End";
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +29,6 @@ public class RespawnSystem : MonoBehaviour
         else if (other.gameObject.CompareTag(CHECKPOINT_TAG))
         {
             RespawnPoint.transform.position = other.gameObject.transform.position;
-        }
-        else if (other.gameObject.CompareTag(END_TAG))
-        {
-            SceneManager.LoadScene(nextSceneName);
         }
 
     }
