@@ -64,10 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AllSkyFree\AllSkyFree_Menu.cs" />
+    <Compile Include="Assets\Scripts\CameraOnObjectMovement.cs" />
     <Compile Include="Assets\Scripts\ConstantRespawn.cs" />
     <Compile Include="Assets\Scripts\ConstantRotation.cs" />
     <Compile Include="Assets\Scripts\ControlTrigers.cs" />
     <Compile Include="Assets\Scripts\EndScene.cs" />
+    <Compile Include="Assets\Scripts\Fly.cs" />
+    <Compile Include="Assets\Scripts\MovementControllerWithCamera.cs" />
+    <Compile Include="Assets\Scripts\RespawnSystem.cs" />
     <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
