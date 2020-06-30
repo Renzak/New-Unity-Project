@@ -61,4 +61,9 @@ public class CameraOnObjectMovement : MonoBehaviour
         oldY += mouseY;
     }
 
+    public void SetCameraLookDirection(float angle)
+    {
+        oldX = -Mathf.Deg2Rad * (angle + 90);
+    }
+
 }

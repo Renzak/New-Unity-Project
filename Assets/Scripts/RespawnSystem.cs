@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class RespawnSystem : MonoBehaviour
 {
-    GameObject RespawnPoint;
-
     public string nextSceneName;
+    public GameObject mainCamera;
+
+    GameObject respawnPoint;
+    CameraOnObjectMovement cameraOnObjectMovement;
 
     readonly string DEAD_TAG = "DeadPit";
     readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
@@ -16,19 +18,24 @@ public class RespawnSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RespawnPoint = GameObject.Find(RESPAWN_OBJECT_NAME);
+        respawnPoint = GameObject.Find(RESPAWN_OBJECT_NAME);
+        cameraOnObjectMovement = GetComponent<CameraOnObjectMovement>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(DEAD_TAG))
         {
-            transform.position = RespawnPoint.transform.position;
+            transform.position = respawnPoint.transform.position;
+            cameraOnObjectMovement.SetCameraLookDirection(respawnPoint.transform.rotation.eulerAngles.y);
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
         else if (other.gameObject.CompareTag(CHECKPOINT_TAG))
         {
-            RespawnPoint.transform.position = other.gameObject.transform.position;
+            respawnPoint.transform.parent = null;
+            respawnPoint.transform.rotation = other.transform.rotation;
+            respawnPoint.transform.position = other.transform.position;
+            respawnPoint.transform.parent = other.transform;
         }
 
     }

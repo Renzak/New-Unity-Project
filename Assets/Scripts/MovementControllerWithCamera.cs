@@ -135,5 +135,4 @@ public class MovementControllerWithCamera : MonoBehaviour
             speedFactor -= speedFactorSprint;
         }
     }
-
 }
