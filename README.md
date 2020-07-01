@@ -3,26 +3,26 @@
 ## Game features:
   * 3D
   * Advanced movement system
-  * Advanced Great jump mechanics
-  * Less Comlicated Complex respawn system
+  * Advanced great jump mechanics
+  * Less complicated complex respawn system
   * 20+ platforms
-  * 1.5+ levels
-  * Imposible level connection mechanics
-  * Ultra Realistic background
-  * Colors+
+  * 1.707+ levels
+  * Impossible level connection mechanics
+  * Ultra realistic background
+  * Colors++
   * Lights
   * Sounds(off for the moment)
   * Featherweight UI
   * Shapes
-  * Harder Easy to learn controls
+  * Harder easy to learn controls
   * No longer runs on a old potato (newer potato optional)
-  * Hard to understan flight mechanics(DevOnly)
+  * Hard to understand flight mechanics(DevOnly)
   * Other
 
 ## How to play
-  * **WASD** - move
-  * **Space** - jump
-  * **Mouse** - camera
-  * **Shift** - sprint(somewhat usable)
+  * **WASD** - Move
+  * **Space** - Jump
+  * **Mouse** - Camera
+  * **Shift** - Sprint(somewhat usable)
   * **Q** - Fly(cheat button(PissedDevOnly))
   
