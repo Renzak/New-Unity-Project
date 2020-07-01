@@ -14,12 +14,23 @@ public class RespawnSystem : MonoBehaviour
     readonly string DEAD_TAG = "DeadPit";
     readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
     readonly string CHECKPOINT_TAG = "Checkpoint";
+    readonly string ENEMY_TAG = "Enemy";
 
     // Start is called before the first frame update
     void Start()
     {
         respawnPoint = GameObject.Find(RESPAWN_OBJECT_NAME);
         cameraOnObjectMovement = GetComponent<CameraOnObjectMovement>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        {
+            transform.position = respawnPoint.transform.position;
+            cameraOnObjectMovement.SetCameraLookDirection(respawnPoint.transform.rotation.eulerAngles.y);
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +48,5 @@ public class RespawnSystem : MonoBehaviour
             respawnPoint.transform.position = other.transform.position;
             respawnPoint.transform.parent = other.transform;
         }
-
     }
 }
