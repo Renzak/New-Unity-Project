@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12fff3d2a3b2bca4cbf6c0ac36fcfae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: TestingScene
+  nextSceneName: Level_02
 --- !u!1 &51075451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3341,7 +3341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beef8ad6c928fa842bc41de8d153c8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1298925958}
+  player: {fileID: 1298925958}
 --- !u!1 &1167298395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,8 +3764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c75648d37b1984eae8d7bac4cf2d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: TestingScene
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1144932671}
 --- !u!114 &1298925962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,12 +3779,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1144932671}
   jumpSound: {fileID: 8300000, guid: f9283f7d87f959743927e93b02a1af63, type: 3}
-  verticalVelocity: {x: 0, y: 30, z: 0}
+  verticalVelocity: 30
   speedFactor: 50
   maxVelocity: 20
-  speedFactorSprint: 40
-  maxVelocitySprint: 20
-  delaSinceJump: 0.5
+  speedFactorIncreaseOnSprint: 40
+  maxVelocityIncreaseOnSprint: 20
+  deltaSinceJump: 0.5
 --- !u!54 &1298925963
 Rigidbody:
   m_ObjectHideFlags: 0

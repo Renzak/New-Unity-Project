@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ConstantRespawn : MonoBehaviour
 {
-    readonly string DEAD_TAG = "DeadPit";
     Vector3 respawnPosition;
 
     void Start()
@@ -14,7 +13,7 @@ public class ConstantRespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(DEAD_TAG))
+        if (other.gameObject.CompareTag(Config.DEAD_TAG))
         {
             transform.position = respawnPosition;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

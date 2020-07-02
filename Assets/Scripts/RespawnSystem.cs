@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class RespawnSystem : MonoBehaviour
 {
-    public string nextSceneName;
     public GameObject mainCamera;
 
     GameObject respawnPoint;

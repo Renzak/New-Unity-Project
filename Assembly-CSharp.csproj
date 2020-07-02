@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Fly.cs" />
     <Compile Include="Assets\Scripts\MovementControllerWithCamera.cs" />
+    <Compile Include="Assets\Scripts\PowerUp.cs" />
     <Compile Include="Assets\Scripts\RespawnSystem.cs" />
     <None Include="Assets\AllSkyFree\AllSkyFree_Readme.txt" />
     <Reference Include="UnityEngine">

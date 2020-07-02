@@ -9,6 +9,9 @@ TagManager:
   - Checkpoint
   - End
   - Enemy
+  - PowerUp
+  - Wall
+  - Unparentable
   layers:
   - Default
   - TransparentFX

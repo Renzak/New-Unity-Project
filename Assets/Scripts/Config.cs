@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  All Information that is consistent between levels should be here
+ */
 public static class Config
 {
     // Tags
@@ -10,8 +13,12 @@ public static class Config
     public static readonly string PLAYER_TAG = "Player";
     public static readonly string JUMPABLE_TAG = "JumpPlatform";
     public static readonly string CHECKPOINT_TAG = "Checkpoint";
+    public static readonly string UNPARENTABLE_TAG = "Unparentable";
+
+    // Names
     public static readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
     public static readonly string PLAYER_PARENT_OBJECT_NAME = "PlayerParentObject";
+    public static readonly string MAIN_CAMERA_NAME = "MainCamera";
 
     // Basic movement
     public static KeyCode leftMovementKeyCode = KeyCode.A;

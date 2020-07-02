@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class CameraOnObjectMovement : MonoBehaviour
 {
-    public float MOUSE_SENSITIVITY = 0.1f;
-    public float MAX_COS = 0.4f;
-    public float MIN_COS = 0.1f;
-    public int CAMERA_RADIUS = 10;
+    public float mouseSensitivity = 0.1f;
+    public float maxCos = 0.4f;
+    public float minCos = 0.1f;
+    public int cameraRadius = 10;
 
     GameObject mainCamera;
-    
-    readonly string CAMERA_NAME = "MainCamera";
 
     float oldX;
     float oldY;
@@ -19,14 +17,14 @@ public class CameraOnObjectMovement : MonoBehaviour
     void Start()
     {
         oldX = 0f;
-        oldY = Mathf.Acos((MIN_COS + MAX_COS) / 2f);
-        mainCamera = GameObject.Find(CAMERA_NAME);
+        oldY = Mathf.Acos((minCos + maxCos) / 2f);
+        mainCamera = GameObject.Find(Config.MAIN_CAMERA_NAME);
     }
 
     void Update()
     {
-        float mouseX = MOUSE_SENSITIVITY * -Input.GetAxis("Mouse X");
-        float mouseY = MOUSE_SENSITIVITY * Input.GetAxis("Mouse Y");
+        float mouseX = mouseSensitivity * -Input.GetAxis("Mouse X");
+        float mouseY = mouseSensitivity * Input.GetAxis("Mouse Y");
         UpdateCameraPosition(mouseX, mouseY);
 
     }
@@ -39,7 +37,7 @@ public class CameraOnObjectMovement : MonoBehaviour
         float sinA;
         float sinB;
 
-        if (Mathf.Cos(mouseY + oldY) > MAX_COS || Mathf.Cos(mouseY + oldY) < MIN_COS)
+        if (Mathf.Cos(mouseY + oldY) > maxCos || Mathf.Cos(mouseY + oldY) < minCos)
         {
             mouseY = 0;
         }
@@ -50,9 +48,9 @@ public class CameraOnObjectMovement : MonoBehaviour
         sinA = Mathf.Sin(mouseX + oldX);
         sinB = Mathf.Sin(mouseY + oldY);
 
-        float x = CAMERA_RADIUS * cosA * sinB;
-        float y = CAMERA_RADIUS * cosB;
-        float z = CAMERA_RADIUS * sinA * sinB;
+        float x = cameraRadius * cosA * sinB;
+        float y = cameraRadius * cosB;
+        float z = cameraRadius * sinA * sinB;
 
         mainCamera.transform.position = gameObject.transform.position + new Vector3(x, y, z);
         mainCamera.transform.LookAt(gameObject.transform);
