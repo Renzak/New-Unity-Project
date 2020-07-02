@@ -48,13 +48,11 @@ public class MovementControllerWithCamera : MonoBehaviour
                 Destroy(temp);
             }
 
-            if(!collision.gameObject.CompareTag(Config.UNPARENTABLE_TAG))
-            {
-                var emptyObject = new GameObject();
-                emptyObject.name = Config.PLAYER_PARENT_OBJECT_NAME;
-                emptyObject.transform.parent = collision.gameObject.transform;
-                gameObject.transform.parent = emptyObject.transform;
-            }
+            var emptyObject = new GameObject();
+            emptyObject.name = Config.PLAYER_PARENT_OBJECT_NAME;
+            emptyObject.transform.rotation = collision.transform.rotation;
+            emptyObject.transform.parent = collision.gameObject.transform;
+            gameObject.transform.parent = emptyObject.transform;
         }
     }
 

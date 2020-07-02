@@ -782,7 +782,7 @@ Transform:
   m_Children:
   - {fileID: 140949843}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &180462250
 GameObject:
@@ -875,7 +875,7 @@ Transform:
   m_LocalScale: {x: 30, y: 3, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
 --- !u!1 &293847593
 GameObject:
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 420288425}
   m_Layer: 0
   m_Name: RotatingThings (2)
-  m_TagString: Unparentable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1544,7 +1544,7 @@ Transform:
   - {fileID: 121703788}
   - {fileID: 1944875788}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &483765211
 GameObject:
@@ -1638,7 +1638,7 @@ Transform:
   m_Children:
   - {fileID: 2067060100}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &543047263
 GameObject:
@@ -1651,7 +1651,7 @@ GameObject:
   - component: {fileID: 543047264}
   m_Layer: 0
   m_Name: TiltedPlatforms
-  m_TagString: Unparentable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1669,9 +1669,8 @@ Transform:
   m_Children:
   - {fileID: 918138001}
   - {fileID: 1008896918}
-  - {fileID: 2001104674}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580061346
 GameObject:
@@ -1765,7 +1764,7 @@ Transform:
   m_Children:
   - {fileID: 700494239}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &594640237
 GameObject:
@@ -2255,7 +2254,7 @@ Transform:
   m_LocalScale: {x: 60, y: 0.5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797008586
 GameObject:
@@ -2650,7 +2649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &918137997
 GameObject:
@@ -2666,7 +2665,7 @@ GameObject:
   - component: {fileID: 918137998}
   m_Layer: 0
   m_Name: NormalPlatform (8)
-  m_TagString: Unparentable
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2911,7 +2910,7 @@ GameObject:
   - component: {fileID: 1008896915}
   m_Layer: 0
   m_Name: NormalPlatform (9)
-  m_TagString: Unparentable
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3081,7 +3080,7 @@ Transform:
   m_LocalScale: {x: 60, y: 0.5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1015680502
 GameObject:
@@ -4109,7 +4108,7 @@ Transform:
   m_LocalScale: {x: 10, y: 0.5, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799214802
 GameObject:
@@ -4203,7 +4202,7 @@ Transform:
   m_Children:
   - {fileID: 759516915}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801031250
 GameObject:
@@ -4353,7 +4352,7 @@ GameObject:
   - component: {fileID: 1879548283}
   m_Layer: 0
   m_Name: RotatingThings
-  m_TagString: Unparentable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4386,7 +4385,7 @@ Transform:
   - {fileID: 1998764065}
   - {fileID: 735870641}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1913128409
 GameObject:
@@ -4805,7 +4804,7 @@ GameObject:
   - component: {fileID: 2001104675}
   m_Layer: 0
   m_Name: NormalPlatform (10)
-  m_TagString: Unparentable
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4817,12 +4816,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001104673}
-  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 47.06, y: -0.8, z: -69.2}
-  m_LocalScale: {x: 2, y: 0.5, z: 10}
+  m_LocalRotation: {x: 0.5735764, y: -0, z: -0, w: 0.8191521}
+  m_LocalPosition: {x: 193.98001, y: 2.2, z: -77.399994}
+  m_LocalScale: {x: 6, y: 0.5, z: 10}
   m_Children: []
-  m_Father: {fileID: 543047264}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!65 &2001104675
 BoxCollider:
@@ -5063,7 +5062,7 @@ GameObject:
   - component: {fileID: 2083682875}
   m_Layer: 0
   m_Name: RotatingThings (1)
-  m_TagString: Unparentable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5096,7 +5095,7 @@ Transform:
   - {fileID: 814155072}
   - {fileID: 46427455}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &2136179446
 GameObject:
