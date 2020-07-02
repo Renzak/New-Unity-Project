@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
-
-    readonly string PLAYER_TAG = "Player";
     public string nextSceneName;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(PLAYER_TAG))
+        if (other.gameObject.CompareTag(Config.PLAYER_TAG))
         {
             SceneManager.LoadScene(nextSceneName);
         }

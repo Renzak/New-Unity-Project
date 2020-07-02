@@ -11,21 +11,15 @@ public class RespawnSystem : MonoBehaviour
     GameObject respawnPoint;
     CameraOnObjectMovement cameraOnObjectMovement;
 
-    readonly string DEAD_TAG = "DeadPit";
-    readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
-    readonly string CHECKPOINT_TAG = "Checkpoint";
-    readonly string ENEMY_TAG = "Enemy";
-
-    // Start is called before the first frame update
     void Start()
     {
-        respawnPoint = GameObject.Find(RESPAWN_OBJECT_NAME);
+        respawnPoint = GameObject.Find(Config.RESPAWN_OBJECT_NAME);
         cameraOnObjectMovement = GetComponent<CameraOnObjectMovement>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(ENEMY_TAG))
+        if (collision.gameObject.CompareTag(Config.ENEMY_TAG))
         {
             transform.position = respawnPoint.transform.position;
             cameraOnObjectMovement.SetCameraLookDirection(respawnPoint.transform.rotation.eulerAngles.y);
@@ -35,13 +29,13 @@ public class RespawnSystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(DEAD_TAG))
+        if (other.gameObject.CompareTag(Config.DEAD_TAG))
         {
             transform.position = respawnPoint.transform.position;
             cameraOnObjectMovement.SetCameraLookDirection(respawnPoint.transform.rotation.eulerAngles.y);
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
-        else if (other.gameObject.CompareTag(CHECKPOINT_TAG))
+        else if (other.gameObject.CompareTag(Config.CHECKPOINT_TAG))
         {
             respawnPoint.transform.parent = null;
             respawnPoint.transform.rotation = other.transform.rotation;

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\AllSkyFree\AllSkyFree_Menu.cs" />
     <Compile Include="Assets\Scripts\CameraOnObjectMovement.cs" />
+    <Compile Include="Assets\Scripts\Config.cs" />
     <Compile Include="Assets\Scripts\ConstantRespawn.cs" />
     <Compile Include="Assets\Scripts\ConstantRotation.cs" />
     <Compile Include="Assets\Scripts\ControlTrigers.cs" />

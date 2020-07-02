@@ -21,9 +21,8 @@ public class Fly : MonoBehaviour
     void Update()
     {
         ProccessUserInput();
-        rigidBody.velocity = new Vector3(rigidBody.velocity.x*velocityReduce,
-                                         rigidBody.velocity.y*velocityReduce,
-                                         rigidBody.velocity.z*velocityReduce);
+        LimitVelocity();
+        DecayVelocity();
     }
     
     void ProccessUserInput()
@@ -33,36 +32,39 @@ public class Fly : MonoBehaviour
         float posZ = transform.position.z - mainCamera.transform.position.z;
 
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(Config.leftMovementKeyCode))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(Config.forwardMovementKeyCode))
         {
             rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(Config.rightMovementKeyCode))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(Config.backwardMovementKeyCode))
         {
             rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(Config.jumpKeyCode))
         {
             rigidBody.velocity -= new Vector3(0, posY, 0).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(Config.sprintKeyCode))
         {
             rigidBody.velocity += new Vector3(0, posY, 0).normalized * Time.deltaTime * speedFactor;
         }
+    }
 
+    void LimitVelocity()
+    {
         if (rigidBody.velocity.x > maxVelocity)
         {
             rigidBody.velocity = new Vector3(maxVelocity, rigidBody.velocity.y, rigidBody.velocity.z);
@@ -92,8 +94,13 @@ public class Fly : MonoBehaviour
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, maxVelocity);
         }
+    }
 
-        
+    void DecayVelocity()
+    {
+        rigidBody.velocity = new Vector3(rigidBody.velocity.x * velocityReduce,
+                                         rigidBody.velocity.y * velocityReduce,
+                                         rigidBody.velocity.z * velocityReduce);
     }
 
 }
