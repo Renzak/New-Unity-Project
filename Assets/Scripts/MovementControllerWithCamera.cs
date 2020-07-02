@@ -22,6 +22,8 @@ public class MovementControllerWithCamera : MonoBehaviour
     
     float deltaTimeJump = 0;
 
+    bool isSprinting = false;
+
     void Start()
     {
         rigidBody = gameObject.GetComponent<Rigidbody>();
@@ -106,17 +108,37 @@ public class MovementControllerWithCamera : MonoBehaviour
 
         if (Input.GetKeyDown(Config.sprintKeyCode))
         {
+            isSprinting = true;
             maxVelocity += maxVelocityIncreaseOnSprint;
             speedFactor += speedFactorIncreaseOnSprint;
         }
 
         else if (Input.GetKeyUp(Config.sprintKeyCode))
         {
+            isSprinting = false;
             maxVelocity -= maxVelocityIncreaseOnSprint;
             speedFactor -= speedFactorIncreaseOnSprint;
         }
 
         LimitVelocity();
+    }
+
+    public void PrepareForDisabling()
+    {
+        if(isSprinting)
+        {
+            maxVelocity -= maxVelocityIncreaseOnSprint;
+            speedFactor -= speedFactorIncreaseOnSprint;
+        }
+    }
+
+    public void PrepareForEnabling()
+    {
+        if(Input.GetKey(Config.sprintKeyCode))
+        {
+            maxVelocity += maxVelocityIncreaseOnSprint;
+            speedFactor += speedFactorIncreaseOnSprint;
+        }
     }
 
     void LimitVelocity()
