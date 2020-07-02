@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraOnObjectMovement : MonoBehaviour
 {
     public float mouseSensitivity = 0.1f;
-    public float maxCos = 0.4f;
+    public float maxCos = 0.9f;
     public float minCos = 0.1f;
     public int cameraRadius = 10;
 

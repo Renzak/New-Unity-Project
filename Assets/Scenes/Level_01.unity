@@ -3748,10 +3748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26247b3aebd5b464d9fecfcfcb46459b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MOUSE_SENSITIVITY: 0.1
-  MAX_COS: 0.9
-  MIN_COS: 0.1
-  CAMERA_RADIUS: 10
+  mouseSensitivity: 0.1
+  maxCos: 0.8
+  minCos: 0.1
+  cameraRadius: 10
 --- !u!114 &1298925961
 MonoBehaviour:
   m_ObjectHideFlags: 0
