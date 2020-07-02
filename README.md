@@ -11,6 +11,7 @@
   * Ultra realistic background
   * Colors++
   * Lights
+  * Ducks
   * Sounds(off for the moment)
   * Featherweight UI
   * Shapes
