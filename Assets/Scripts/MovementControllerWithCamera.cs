@@ -11,8 +11,9 @@ public class MovementControllerWithCamera : MonoBehaviour
 
     public int speedFactor = 50;
     public int maxVelocity = 20;
-    public int speedFactorIncreaseOnSprint = 40;
-    public int maxVelocityIncreaseOnSprint = 20;
+
+    public int speedFactorSprint = 90;
+    public int maxVelocitySprint = 40;
 
     public float deltaSinceJump =  0.5f;
 
@@ -22,10 +23,13 @@ public class MovementControllerWithCamera : MonoBehaviour
     
     float deltaTimeJump = 0;
 
-    bool isSprinting = false;
+    int currentMaxVelocity;
+    int currentSpeedFactor;
 
     void Start()
     {
+        currentMaxVelocity = maxVelocity;
+        currentSpeedFactor = speedFactor;
         rigidBody = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -86,79 +90,74 @@ public class MovementControllerWithCamera : MonoBehaviour
 
         if (Input.GetKey(Config.leftMovementKeyCode))
         {
-            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
+            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
         if (Input.GetKey(Config.forwardMovementKeyCode))
         {
-            rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
+            rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
         if (Input.GetKey(Config.rightMovementKeyCode))
         {
-            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
+            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
         if (Input.GetKey(Config.backwardMovementKeyCode))
         {
-            rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
+            rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
         if (Input.GetKeyDown(Config.sprintKeyCode))
         {
-            isSprinting = true;
-            maxVelocity += maxVelocityIncreaseOnSprint;
-            speedFactor += speedFactorIncreaseOnSprint;
+            currentMaxVelocity = maxVelocitySprint;
+            currentSpeedFactor = speedFactorSprint;
         }
 
         else if (Input.GetKeyUp(Config.sprintKeyCode))
         {
-            isSprinting = false;
-            maxVelocity -= maxVelocityIncreaseOnSprint;
-            speedFactor -= speedFactorIncreaseOnSprint;
+            currentMaxVelocity = maxVelocity;
+            currentSpeedFactor = speedFactor;
         }
 
         LimitVelocity();
     }
 
-    public void PrepareForDisabling()
-    {
-        if(isSprinting)
-        {
-            maxVelocity -= maxVelocityIncreaseOnSprint;
-            speedFactor -= speedFactorIncreaseOnSprint;
-        }
-    }
-
-    public void PrepareForEnabling()
-    {
-        if(Input.GetKey(Config.sprintKeyCode))
-        {
-            maxVelocity += maxVelocityIncreaseOnSprint;
-            speedFactor += speedFactorIncreaseOnSprint;
-        }
-    }
-
     void LimitVelocity()
     {
-        if (rigidBody.velocity.x > maxVelocity)
+        if (rigidBody.velocity.x > currentMaxVelocity)
         {
-            rigidBody.velocity = new Vector3(maxVelocity, rigidBody.velocity.y, rigidBody.velocity.z);
+            rigidBody.velocity = new Vector3(currentMaxVelocity, rigidBody.velocity.y, rigidBody.velocity.z);
         }
 
-        if (rigidBody.velocity.z < -maxVelocity)
+        if (rigidBody.velocity.z < -currentMaxVelocity)
         {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -maxVelocity);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -currentMaxVelocity);
         }
 
-        if (rigidBody.velocity.z > maxVelocity)
+        if (rigidBody.velocity.z > currentMaxVelocity)
         {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, maxVelocity);
+            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, currentMaxVelocity);
         }
 
-        if (rigidBody.velocity.x < -maxVelocity)
+        if (rigidBody.velocity.x < -currentMaxVelocity)
         {
-            rigidBody.velocity = new Vector3(-maxVelocity, rigidBody.velocity.y, rigidBody.velocity.z);
+            rigidBody.velocity = new Vector3(-currentMaxVelocity, rigidBody.velocity.y, rigidBody.velocity.z);
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (Input.GetKey(Config.sprintKeyCode))
+        {
+            currentMaxVelocity = maxVelocitySprint;
+            currentSpeedFactor = speedFactorSprint;
+        }
+
+        else 
+        {
+            currentMaxVelocity = maxVelocity;
+            currentSpeedFactor = speedFactor;
         }
     }
 }

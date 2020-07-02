@@ -23,17 +23,8 @@ public class ControlTrigers : MonoBehaviour
     {
         if (Input.GetKeyDown(Config.flyToggleKeyCode))
         {
-            if(movementControllerWithCamera.enabled)
-            {
-                movementControllerWithCamera.PrepareForDisabling();
-                movementControllerWithCamera.enabled = false;
-            }
-            else
-            {
-                movementControllerWithCamera.PrepareForEnabling();
-                movementControllerWithCamera.enabled = true;
-            }
             fly.enabled = !fly.enabled;
+            movementControllerWithCamera.enabled = !movementControllerWithCamera.enabled;
             player.GetComponent<Rigidbody>().useGravity = movementControllerWithCamera.enabled;
         }
     }
