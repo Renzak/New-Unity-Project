@@ -13,6 +13,12 @@ public class ConstantMovementTroughGraphVertices : MonoBehaviour
     int currentVectorIndex = 0;
     void Start()
     {
+        if (vertices.Count <= 1)
+        {
+            enabled = false;
+            return;
+        }
+
         for (int i = 1; i < vertices.Count; ++i)
         {
             normalizedVectorsToVertices.Add((vertices[i] - vertices[i - 1]).normalized);
@@ -21,9 +27,6 @@ public class ConstantMovementTroughGraphVertices : MonoBehaviour
 
         transform.position = vertices[0];
 
-        // Just in case
-        if (vertices.Count <= 1)
-            enabled = false;
     }
 
     void Update()

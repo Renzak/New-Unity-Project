@@ -1455,10 +1455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26247b3aebd5b464d9fecfcfcb46459b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MOUSE_SENSITIVITY: 0.1
-  MAX_COS: 0.9
-  MIN_COS: 0.1
-  CAMERA_RADIUS: 10
+  mouseSensitivity: 0.1
+  maxCos: 0.9
+  minCos: 0.1
+  cameraRadius: 10
 --- !u!114 &747933982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,7 +1471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4c75648d37b1984eae8d7bac4cf2d4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: ObjectLibrary
   mainCamera: {fileID: 286089194}
 --- !u!114 &747933983
 MonoBehaviour:
@@ -1487,12 +1486,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 286089194}
   jumpSound: {fileID: 8300000, guid: f9283f7d87f959743927e93b02a1af63, type: 3}
-  verticalVelocity: {x: 0, y: 30, z: 0}
+  verticalVelocity: 30
   speedFactor: 50
   maxVelocity: 20
   speedFactorSprint: 40
   maxVelocitySprint: 20
-  delaSinceJump: 0.5
+  deltaSinceJump: 0.5
 --- !u!54 &747933984
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1540,7 +1539,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e42f46c3abd13964b9e4745bf2c04feb, type: 2}
+  - {fileID: 2100000, guid: 1fed4eb18def0b14b8d85c72774e205f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
