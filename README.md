@@ -5,14 +5,15 @@
   * Advanced movement system
   * Advanced great jump mechanics
   * Less complicated complex respawn system
-  * 30+ platforms
+  * 40+ platforms
   * 2.707+ levels
   * Impossible level connection mechanics
   * Ultra realistic background
   * Colors++
   * Lights
-  * Ducks
+  * Ducks(currently in testing phase)
   * Powers
+  * Things that move
   * Sounds(off for the moment)
   * Featherweight UI
   * Shapes
