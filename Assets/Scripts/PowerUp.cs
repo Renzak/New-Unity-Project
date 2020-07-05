@@ -55,7 +55,13 @@ public class PowerUp : MonoBehaviour
 
                     foreach (var wall in walls)
                     {
-                        wall.GetComponent<Collider>().enabled = false;
+                        Collider collider;
+
+                        if(wall.TryGetComponent<Collider>(out collider))
+                        {
+                            collider.enabled = true;
+                        }
+                        
                     }
                     break;
 
@@ -65,7 +71,12 @@ public class PowerUp : MonoBehaviour
 
                     foreach (var wall in walls)
                     {
-                        wall.GetComponent<Collider>().enabled = false;
+                        Collider collider;
+
+                        if (wall.TryGetComponent<Collider>(out collider))
+                        {
+                            collider.enabled = false;
+                        }
                     }
                     break;
 
