@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 102
+  controlID: 110
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 103
+  controlID: 111
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -303,9 +303,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: fc380000
+      m_SelectedIDs: 7e360000
       m_LastClickedID: 0
-      m_ExpandedIDs: 46acffff80adffffb6adffffdeadffff06aeffff04afffff5eafffffc0afffff10b0ffff62b0ffff3eb1ffff7cd0ffffc4d3ffffcaeeffffa0f8ffffd4f8ffff9cf9ffffb0f9ffff6afbffff
+      m_ExpandedIDs: 8cecffffe2ecffffa6eeffff20f2ffff16f4ffffa6faffff6afbffff283700004c370000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -365,9 +365,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -26.81, y: 5.5, z: -32.5}
+    m_Target: {x: -62.50419, y: -47.06212, z: -47.04705}
     speed: 2
-    m_Value: {x: -26.81, y: 5.5, z: -32.5}
+    m_Value: {x: -62.50419, y: -47.06212, z: -47.04705}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -413,13 +413,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08741597, y: -0.4883172, z: 0.049241792, w: 0.8668802}
+    m_Target: {x: 0.037722968, y: 0.9433254, z: -0.30894813, w: 0.115181394}
     speed: 2
-    m_Value: {x: 0.08741592, y: -0.4883169, z: 0.049241763, w: 0.86687964}
+    m_Value: {x: 0.03772294, y: 0.94332474, z: -0.30894792, w: 0.11518131}
   m_Size:
-    m_Target: 0.8660254
+    m_Target: 85.26096
     speed: 2
-    m_Value: 0.8660254
+    m_Value: 89.278496
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -601,20 +601,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes/Levels
+    - Assets/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes/Levels
+  - Assets/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\CollabGame\New-Unity-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 44}
-    m_SelectedIDs: e6380000
-    m_LastClickedID: 14566
-    m_ExpandedIDs: 000000003c3600003e3600004036000000ca9a3b
+    scrollPos: {x: 0, y: 284}
+    m_SelectedIDs: 60360000
+    m_LastClickedID: 13920
+    m_ExpandedIDs: 000000003e360000403600004236000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -642,7 +642,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c3600003e36000040360000
+    m_ExpandedIDs: 000000003e3600004036000042360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
