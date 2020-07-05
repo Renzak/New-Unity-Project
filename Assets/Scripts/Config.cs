@@ -8,17 +8,17 @@ using UnityEngine;
 public static class Config
 {
     // Tags
+    public static readonly string WALL_TAG = "Wall";
     public static readonly string DEAD_TAG = "DeadPit";
     public static readonly string ENEMY_TAG = "Enemy";
     public static readonly string PLAYER_TAG = "Player";
     public static readonly string JUMPABLE_TAG = "JumpPlatform";
     public static readonly string CHECKPOINT_TAG = "Checkpoint";
-    public static readonly string UNPARENTABLE_TAG = "Unparentable";
 
     // Names
+    public static readonly string MAIN_CAMERA_NAME = "MainCamera";
     public static readonly string RESPAWN_OBJECT_NAME = "RespawnPoint";
     public static readonly string PLAYER_PARENT_OBJECT_NAME = "PlayerParentObject";
-    public static readonly string MAIN_CAMERA_NAME = "MainCamera";
 
     // Basic movement
     public static KeyCode leftMovementKeyCode = KeyCode.A;
