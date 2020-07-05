@@ -1428,6 +1428,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: default
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f48be266efb88f54b89ec0b553815a0d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f48be266efb88f54b89ec0b553815a0d, type: 3}
 --- !u!1 &382992321
@@ -2068,6 +2073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 2
+  ghostMaterial: {fileID: 0}
 --- !u!65 &759516917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2801,6 +2807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 1
+  ghostMaterial: {fileID: 0}
 --- !u!65 &1006327944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3872,7 +3879,7 @@ GameObject:
   - component: {fileID: 1761893739}
   m_Layer: 0
   m_Name: default (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4262,6 +4269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpType: 0
+  ghostMaterial: {fileID: 0}
 --- !u!65 &1866090897
 BoxCollider:
   m_ObjectHideFlags: 0

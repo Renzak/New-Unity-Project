@@ -140,7 +140,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 110
+  controlID: 108
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 111
+  controlID: 109
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,10 +302,10 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e360000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 8cecffffe2ecffffa6eeffff20f2ffff16f4ffffa6faffff6afbffff283700004c370000
+      scrollPos: {x: 0, y: 96}
+      m_SelectedIDs: 0cce0000
+      m_LastClickedID: 52748
+      m_ExpandedIDs: d845fffffe45ffff7447fffff848ffff264cffffd84dffff0e52ffffa077ffffdc9effff80a1ffff50a4fffff0a5fffffaa9ffffb6f6ffff92faffff60fbffffee3f000052400000584000006240000078400000e4400000ba4100008ab30000d2b40000dcb4000002b7000064b70000a2b700003ab80000eeb8000026bc00004cbc0000eebc000064c100007cc100002ecc0000b2cc0000bccc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -365,9 +365,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -62.50419, y: -47.06212, z: -47.04705}
+    m_Target: {x: -18.403265, y: 39.670498, z: -2.369995}
     speed: 2
-    m_Value: {x: -62.50419, y: -47.06212, z: -47.04705}
+    m_Value: {x: -18.403265, y: 39.670498, z: -2.369995}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -413,13 +413,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.037722968, y: 0.9433254, z: -0.30894813, w: 0.115181394}
+    m_Target: {x: 0, y: 1, z: 0, w: 0}
     speed: 2
-    m_Value: {x: 0.03772294, y: 0.94332474, z: -0.30894792, w: 0.11518131}
+    m_Value: {x: 0, y: 1, z: 0, w: 0}
   m_Size:
-    m_Target: 85.26096
+    m_Target: 38.287777
     speed: 2
-    m_Value: 89.278496
+    m_Value: 38.287777
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -601,20 +601,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Scenes/Testing
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scenes/Testing
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\CollabGame\New-Unity-Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 284}
-    m_SelectedIDs: 60360000
-    m_LastClickedID: 13920
-    m_ExpandedIDs: 000000003e360000403600004236000000ca9a3b
+    m_SelectedIDs: 74360000
+    m_LastClickedID: 13940
+    m_ExpandedIDs: 0000000046360000483600004a36000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -642,7 +642,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e3600004036000042360000
+    m_ExpandedIDs: 0000000046360000483600004a360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
