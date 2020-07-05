@@ -66,7 +66,7 @@ public class PowerUp : MonoBehaviour
                     break;
 
                 case PowerUpType.Ghost:
-                    playerMaterial = other.GetComponent<Material>();
+                    playerMaterial = other.GetComponent<Renderer>().sharedMaterial;
                     other.GetComponent<Renderer>().sharedMaterial = ghostMaterial;
 
                     foreach (var wall in walls)
