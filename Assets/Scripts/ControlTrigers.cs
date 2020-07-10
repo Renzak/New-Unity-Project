@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ControlTrigers : MonoBehaviour
 {
-    public GameObject player;
+    GameObject player;
     MovementControllerWithCamera movementControllerWithCamera;
     Fly fly;
     
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag(Config.Tags.Player);
         fly = player.GetComponent<Fly>();
         movementControllerWithCamera = player.GetComponent<MovementControllerWithCamera>();
     }
@@ -21,7 +22,7 @@ public class ControlTrigers : MonoBehaviour
 
     void ToggleFly()
     {
-        if (Input.GetKeyDown(Config.flyToggleKeyCode))
+        if (Input.GetKeyDown(Config.Input.flyToggle))
         {
             fly.enabled = !fly.enabled;
             movementControllerWithCamera.enabled = !movementControllerWithCamera.enabled;

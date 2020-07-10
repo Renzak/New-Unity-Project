@@ -15,6 +15,7 @@ public class ConstantMovementTroughGraphVertices : MonoBehaviour
     {
         if (vertices.Count <= 1)
         {
+            Debug.Log("Not enough vertices provided to map a path");
             enabled = false;
             return;
         }

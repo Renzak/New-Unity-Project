@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MovementControllerWithCamera : MonoBehaviour
 {
-    public GameObject mainCamera;
     public AudioClip jumpSound;
 
     public float verticalVelocity =  30;
@@ -15,19 +14,20 @@ public class MovementControllerWithCamera : MonoBehaviour
     public int speedFactorSprint = 90;
     public int maxVelocitySprint = 40;
 
-    public float deltaSinceJump =  0.5f;
+    public float timeDelayBetweenJumps =  0.5f;
 
-    Rigidbody rigidBody;
-    
-    int collidingJumpPlatformsCount = 0;
-    
     float deltaTimeJump = 0;
 
+    int collidingJumpPlatformsCount = 0;
     int currentMaxVelocity;
+    
     int currentSpeedFactor;
+    GameObject mainCamera;
+    Rigidbody rigidBody;
 
     void Start()
     {
+        mainCamera = GameObject.Find(Config.ObjectNames.mainCamera);
         currentMaxVelocity = maxVelocity;
         currentSpeedFactor = speedFactor;
         rigidBody = gameObject.GetComponent<Rigidbody>();
@@ -41,7 +41,7 @@ public class MovementControllerWithCamera : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(Config.JUMPABLE_TAG))
+        if (collision.gameObject.CompareTag(Config.Tags.Jumpable))
         {
             collidingJumpPlatformsCount++;
 
@@ -53,7 +53,7 @@ public class MovementControllerWithCamera : MonoBehaviour
             }
 
             var emptyObject = new GameObject();
-            emptyObject.name = Config.PLAYER_PARENT_OBJECT_NAME;
+            emptyObject.name = Config.ObjectNames.playerParent;
             emptyObject.transform.rotation = collision.transform.rotation;
             emptyObject.transform.parent = collision.gameObject.transform;
             gameObject.transform.parent = emptyObject.transform;
@@ -62,7 +62,7 @@ public class MovementControllerWithCamera : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag(Config.JUMPABLE_TAG))
+        if (collision.gameObject.CompareTag(Config.Tags.Jumpable))
         {
             collidingJumpPlatformsCount--;
 
@@ -81,40 +81,40 @@ public class MovementControllerWithCamera : MonoBehaviour
         float posX = transform.position.x - mainCamera.transform.position.x;
         float posZ = transform.position.z - mainCamera.transform.position.z;
 
-        if (Input.GetKey(Config.jumpKeyCode) && collidingJumpPlatformsCount > 0 && deltaTimeJump > deltaSinceJump)
+        if (Input.GetKey(Config.Input.jump) && collidingJumpPlatformsCount > 0 && deltaTimeJump > timeDelayBetweenJumps)
         {
             deltaTimeJump = 0f;
             rigidBody.velocity += new Vector3(0, verticalVelocity, 0);
             gameObject.GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
-        if (Input.GetKey(Config.leftMovementKeyCode))
+        if (Input.GetKey(Config.Input.left))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
-        if (Input.GetKey(Config.forwardMovementKeyCode))
+        if (Input.GetKey(Config.Input.forward))
         {
             rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
-        if (Input.GetKey(Config.rightMovementKeyCode))
+        if (Input.GetKey(Config.Input.right))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
-        if (Input.GetKey(Config.backwardMovementKeyCode))
+        if (Input.GetKey(Config.Input.backward))
         {
             rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
         }
 
-        if (Input.GetKeyDown(Config.sprintKeyCode))
+        if (Input.GetKeyDown(Config.Input.sprint))
         {
             currentMaxVelocity = maxVelocitySprint;
             currentSpeedFactor = speedFactorSprint;
         }
 
-        else if (Input.GetKeyUp(Config.sprintKeyCode))
+        else if (Input.GetKeyUp(Config.Input.sprint))
         {
             currentMaxVelocity = maxVelocity;
             currentSpeedFactor = speedFactor;
@@ -148,7 +148,7 @@ public class MovementControllerWithCamera : MonoBehaviour
 
     private void OnEnable()
     {
-        if (Input.GetKey(Config.sprintKeyCode))
+        if (Input.GetKey(Config.Input.sprint))
         {
             currentMaxVelocity = maxVelocitySprint;
             currentSpeedFactor = speedFactorSprint;

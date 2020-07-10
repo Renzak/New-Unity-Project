@@ -9,16 +9,15 @@ public class CameraOnObjectMovement : MonoBehaviour
     public float minCos = 0.1f;
     public int cameraRadius = 10;
 
-    GameObject mainCamera;
-
     float oldX;
     float oldY;
 
+    GameObject mainCamera;
     void Start()
     {
         oldX = 0f;
         oldY = Mathf.Acos((minCos + maxCos) / 2f);
-        mainCamera = GameObject.Find(Config.MAIN_CAMERA_NAME);
+        mainCamera = GameObject.Find(Config.ObjectNames.mainCamera);
     }
 
     void Update()

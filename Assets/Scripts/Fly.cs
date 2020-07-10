@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class Fly : MonoBehaviour
 {
-    public GameObject mainCamera;
     
     public int speedFactor = 50;
     public int maxVelocity = 20;
     public float velocityReduce = 0.99f;
 
     Rigidbody rigidBody;
+    GameObject mainCamera;
 
 
     void Start()
     {
         rigidBody = gameObject.GetComponent<Rigidbody>();
+        mainCamera = GameObject.Find(Config.ObjectNames.mainCamera);
     }
 
     void Update()
@@ -31,33 +32,32 @@ public class Fly : MonoBehaviour
         float posY = transform.position.y - mainCamera.transform.position.y;
         float posZ = transform.position.z - mainCamera.transform.position.z;
 
-
-        if (Input.GetKey(Config.leftMovementKeyCode))
+        if (Input.GetKey(Config.Input.left))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(Config.forwardMovementKeyCode))
+        if (Input.GetKey(Config.Input.forward))
         {
             rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(Config.rightMovementKeyCode))
+        if (Input.GetKey(Config.Input.right))
         {
             rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(Config.backwardMovementKeyCode))
+        if (Input.GetKey(Config.Input.backward))
         {
             rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(Config.jumpKeyCode))
+        if (Input.GetKey(Config.Input.jump))
         {
             rigidBody.velocity -= new Vector3(0, posY, 0).normalized * Time.deltaTime * speedFactor;
         }
 
-        if (Input.GetKey(Config.sprintKeyCode))
+        if (Input.GetKey(Config.Input.sprint))
         {
             rigidBody.velocity += new Vector3(0, posY, 0).normalized * Time.deltaTime * speedFactor;
         }
