@@ -1182,11 +1182,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSound: {fileID: 8300000, guid: f9283f7d87f959743927e93b02a1af63, type: 3}
   verticalVelocity: 30
+  timeDelayBetweenJumps: 0.5
+  maxVelocityReducer: 30
   speedFactor: 50
   maxVelocity: 20
   speedFactorSprint: 90
   maxVelocitySprint: 40
-  timeDelayBetweenJumps: 0.5
 --- !u!54 &320935137
 Rigidbody:
   m_ObjectHideFlags: 0

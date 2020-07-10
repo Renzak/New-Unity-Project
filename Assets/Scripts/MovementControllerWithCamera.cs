@@ -6,7 +6,9 @@ public class MovementControllerWithCamera : MonoBehaviour
 {
     public AudioClip jumpSound;
 
-    public float verticalVelocity =  30;
+    public float verticalVelocity =  30f;
+    public float timeDelayBetweenJumps =  0.5f;
+    public float maxVelocityReducer = 30f;
 
     public int speedFactor = 50;
     public int maxVelocity = 20;
@@ -14,14 +16,14 @@ public class MovementControllerWithCamera : MonoBehaviour
     public int speedFactorSprint = 90;
     public int maxVelocitySprint = 40;
 
-    public float timeDelayBetweenJumps =  0.5f;
-
     float deltaTimeJump = 0;
+    float currentMaxVelocity;
 
     int collidingJumpPlatformsCount = 0;
-    int currentMaxVelocity;
-    
     int currentSpeedFactor;
+    
+    bool isShiftUp = true;
+   
     GameObject mainCamera;
     Rigidbody rigidBody;
 
@@ -80,6 +82,7 @@ public class MovementControllerWithCamera : MonoBehaviour
 
         float posX = transform.position.x - mainCamera.transform.position.x;
         float posZ = transform.position.z - mainCamera.transform.position.z;
+        Vector3 vector = new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
 
         if (Input.GetKey(Config.Input.jump) && collidingJumpPlatformsCount > 0 && deltaTimeJump > timeDelayBetweenJumps)
         {
@@ -90,36 +93,49 @@ public class MovementControllerWithCamera : MonoBehaviour
 
         if (Input.GetKey(Config.Input.left))
         {
-            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
+            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * vector;
         }
 
         if (Input.GetKey(Config.Input.forward))
         {
-            rigidBody.velocity += new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
+            rigidBody.velocity += vector;
         }
 
         if (Input.GetKey(Config.Input.right))
         {
-            rigidBody.velocity += Quaternion.Euler(0, -90, 0) * -new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
+            rigidBody.velocity -= Quaternion.Euler(0, -90, 0) * vector;
         }
 
         if (Input.GetKey(Config.Input.backward))
         {
-            rigidBody.velocity -= new Vector3(posX, 0, posZ).normalized * Time.deltaTime * currentSpeedFactor;
+            rigidBody.velocity -= vector;
         }
 
         if (Input.GetKeyDown(Config.Input.sprint))
         {
             currentMaxVelocity = maxVelocitySprint;
             currentSpeedFactor = speedFactorSprint;
+            isShiftUp = false;
         }
-
         else if (Input.GetKeyUp(Config.Input.sprint))
         {
-            currentMaxVelocity = maxVelocity;
             currentSpeedFactor = speedFactor;
+            isShiftUp = true;           
         }
 
+        if (isShiftUp)
+        {
+            if (currentMaxVelocity > maxVelocity)
+            {
+                currentMaxVelocity -= maxVelocityReducer * Time.deltaTime;
+            }
+            else
+            {
+                currentMaxVelocity = maxVelocity;
+            }
+        }
+
+        Debug.Log(currentMaxVelocity);
         LimitVelocity();
     }
 
