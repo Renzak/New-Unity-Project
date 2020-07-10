@@ -5,13 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class EndScene : MonoBehaviour
 {
-    public string nextSceneName;
+    Level current;
+    Level next;
+
+    private void Start()
+    {
+        current = Config.Levels.GetLevel(SceneManager.GetActiveScene().name);
+        next = Config.Levels.GetLevel(current.order + 1);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(Config.PLAYER_TAG))
+        if (other.gameObject.CompareTag(Config.Tags.Player))
         {
-            SceneManager.LoadScene(nextSceneName);
+            SceneManager.LoadScene(next.name);
         }
     }
 

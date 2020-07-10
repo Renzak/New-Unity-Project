@@ -13,7 +13,7 @@ public class ConstantRespawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(Config.DEAD_TAG))
+        if (other.gameObject.CompareTag(Config.Tags.DeadPit))
         {
             transform.position = respawnPosition;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -12,28 +12,31 @@ public enum PowerUpType
 public class PowerUp : MonoBehaviour
 {
     public PowerUpType powerUpType;
-    public Material ghostMaterial;
 
     Vector3 normalPlayerScale;
 
     const float scaleMultiplier = 2f;
 
-    static GameObject[] walls;
-    static Material playerMaterial;
+    GameObject[] walls = null;
+    static Material playerMaterial = null;
+    static Material ghostMaterial = null;
 
     private void Start()
     {
-        normalPlayerScale = GameObject.FindGameObjectWithTag(Config.PLAYER_TAG).transform.localScale;
-        
-        if(walls == null)
-        {
-             walls = GameObject.FindGameObjectsWithTag(Config.WALL_TAG);
-        }
+        normalPlayerScale = GameObject.FindGameObjectWithTag(Config.Tags.Player).transform.localScale;
+
+        if(ghostMaterial == null)
+            ghostMaterial = Resources.Load<Material>(Config.MaterialPaths.ghostPowerup);
+
+        if(playerMaterial == null)
+            playerMaterial = Resources.Load<Material>(Config.MaterialPaths.player);
+
+        walls = GameObject.FindGameObjectsWithTag(Config.Tags.Wall);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(Config.PLAYER_TAG))
+        if(other.CompareTag(Config.Tags.Player))
         {
             switch (powerUpType)
             {
@@ -47,12 +50,8 @@ public class PowerUp : MonoBehaviour
 
                 case PowerUpType.Normalize:
                     other.transform.localScale = normalPlayerScale;
-
-                    if(playerMaterial)
-                    {
-                        other.GetComponent<Renderer>().sharedMaterial = playerMaterial;
-                    }
-
+                    other.GetComponent<Renderer>().material = playerMaterial;
+                    
                     foreach (var wall in walls)
                     {
                         Collider collider;
@@ -61,13 +60,12 @@ public class PowerUp : MonoBehaviour
                         {
                             collider.enabled = true;
                         }
-                        
                     }
                     break;
 
                 case PowerUpType.Ghost:
                     playerMaterial = other.GetComponent<Renderer>().sharedMaterial;
-                    other.GetComponent<Renderer>().sharedMaterial = ghostMaterial;
+                    other.GetComponent<Renderer>().material = ghostMaterial;
 
                     foreach (var wall in walls)
                     {
@@ -81,7 +79,7 @@ public class PowerUp : MonoBehaviour
                     break;
 
                 default:
-                    Debug.Log("Implement power up type!");
+                    Debug.Log("Power up type not found!");
                     break;
             }
         }
